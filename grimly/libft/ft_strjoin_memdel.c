@@ -6,13 +6,13 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 12:48:43 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:15:01 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/13 19:56:01 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
-char	*ft_strjoin_memdel(char const *s1, char const *s2)
+char	*ft_realloc(char const *s1, char const *s2)
 {
 	char	*str;
 

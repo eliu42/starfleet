@@ -6,13 +6,13 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 17:51:08 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 17:57:19 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 13:54:34 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/header.h"
+#include "./includes/libft_header.h"
 
-int		ft_numlen(int num)
+size_t	ft_numlen(int num)
 {
 	int		len;
 

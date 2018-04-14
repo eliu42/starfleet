@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 21:34:22 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:22:11 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 09:10:57 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
 int		ft_tolower(int c)
 {

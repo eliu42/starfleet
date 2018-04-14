@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 21:44:04 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:28:21 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 08:49:33 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
 int		ft_isupper(int c)
 {

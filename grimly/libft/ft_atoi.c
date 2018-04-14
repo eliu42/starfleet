@@ -6,17 +6,19 @@
 /*   By: eliu <eliu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 18:03:07 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 17:58:35 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 14:12:14 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/header.h"
+#include "./includes/libft_header.h"
 
 int		ft_atoi(const char *str)
 {
 	int	num;
 	int	negative;
 
+	if (str == NULL)
+		return (ft_error("str is null"));
 	while (ft_isspace(*str))
 		str++;
 	negative = 1;

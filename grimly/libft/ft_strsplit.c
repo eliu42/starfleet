@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 21:29:21 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:20:27 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/13 17:10:12 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
 static size_t	word_len(char const *s, char c)
 {

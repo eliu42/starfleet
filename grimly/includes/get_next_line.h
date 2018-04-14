@@ -6,7 +6,7 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:26:07 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 14:43:50 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/13 19:15:45 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include "./libft.h"
+# include "libft.h"
 # define BUFF_SIZE 4096
 
 int		get_next_line(const int fd, char **line);

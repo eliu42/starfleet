@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 00:12:16 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:04:23 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 08:49:24 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
 int		ft_isspace(int c)
 {

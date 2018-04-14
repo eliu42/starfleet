@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 21:43:37 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:12:52 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 09:05:09 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
 size_t		ft_strclen(const char *str, char c)
 {

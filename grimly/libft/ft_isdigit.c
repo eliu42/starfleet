@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 21:32:09 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 17:08:06 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 08:48:39 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
 int		ft_isdigit(int c)
 {

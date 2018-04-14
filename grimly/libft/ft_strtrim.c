@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 04:30:28 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:22:00 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 09:10:49 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
 static size_t	ft_space(char c)
 {

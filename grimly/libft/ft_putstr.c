@@ -6,11 +6,11 @@
 /*   By: eliu <eliu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 15:03:41 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:10:41 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 09:06:02 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
 void	ft_putstr(char const *s)
 {

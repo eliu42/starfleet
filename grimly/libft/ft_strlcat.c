@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 21:10:41 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:25:05 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 09:08:18 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

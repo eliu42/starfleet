@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:27:48 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:46:18 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/13 22:57:37 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/get_next_line.h"
+#include "./includes/get_next_line_header.h"
 
 static int			find_line(char **str, char **line)
 {

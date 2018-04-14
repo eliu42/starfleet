@@ -6,7 +6,7 @@
 #    By: eliu <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/03 18:27:38 by eliu              #+#    #+#              #
-#    Updated: 2018/04/11 16:11:24 by eliu             ###   ########.fr        #
+#    Updated: 2018/04/13 19:56:18 by eliu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ NAME = libft.a
 
 FILES = atoi \
 		bzero \
+		cinstr \
+		error \
 		isascii \
 		isalnum \
 		isalpha \
@@ -33,6 +35,7 @@ FILES = atoi \
 		memdel \
 		memmove \
 		memset \
+		numlen \
 		putchar \
 		putstr \
 		putnbr \
@@ -67,10 +70,10 @@ FILES = atoi \
 		putendl_fd \
 		putendl \
 		strjoin \
-		strjoin_memdel \
 		strcjoin \
 		strtrim \
 		itoa \
+		realloc \
 		strsplit \
 		strlcat \
 		lstnew \
@@ -80,9 +83,11 @@ FILES = atoi \
 		lstiter \
 		lstmap \
 
+EXTRA_FILES = get_next_line.c \
+			  ghetto_next_line.c \
+
 FT_FILES = $(addprefix ft_, $(FILES))
 SRC_FILES = $(addsuffix .c,$(FT_FILES)) $(EXTRA_FILES)
-EXTRA_FILES = get_next_line.c
 
 OBJ_FILES = $(SRC_FILES:.c=.o)
 OBJ_PATH = ./objs/
@@ -99,10 +104,9 @@ $(NAME):
 	mkdir $(OBJ_PATH) && mv $(OBJ_FILES) $(OBJ_PATH)
 
 clean:
-	rm -f $(addprefix $(OBJ_PATH), $(OBJ_FILES))
+	rm -f $(OBJ_FILES)
+#	rm -f $(addprefix $(OBJ_PATH), $(OBJ_FILES))
 	rm -rf $(OBJ_PATH)
-#	rm -rf $(addprefix $(OBJ_PATH), OBJ_FILES)
-	
 
 fclean: clean
 	rm -f $(NAME)

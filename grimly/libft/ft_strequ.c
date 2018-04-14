@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 01:03:41 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:14:07 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 09:04:21 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
 int		ft_strequ(char const *s1, char const *s2)
 {

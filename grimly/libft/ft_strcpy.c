@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 21:58:11 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:13:37 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 09:04:43 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
 char	*ft_strcpy(char *dst, const char *src)
 {

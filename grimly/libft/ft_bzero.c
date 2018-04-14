@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 04:13:21 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 17:58:47 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 09:12:46 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/header.h"
+#include "./includes/libft_header.h"
 
 void	ft_bzero(void *s, size_t n)
 {

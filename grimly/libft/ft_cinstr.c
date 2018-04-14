@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_cinstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/11 17:37:22 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 17:37:44 by eliu             ###   ########.fr       */
+/*   Created: 2018/04/12 16:26:48 by eliu              #+#    #+#             */
+/*   Updated: 2018/04/12 16:29:07 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
-#include "libft.h"
-#endif
+#include "./includes/libft_header.h"
+
+int		ft_cinstr(char *str, char c)
+{
+	if (str == NULL)
+		return (ft_error("cinstr string is null"));
+	while (*str)
+	{
+		if (c == *str)
+			return (0);
+		str++;
+	}
+	return (1);
+}

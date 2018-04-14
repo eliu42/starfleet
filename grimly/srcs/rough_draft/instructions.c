@@ -6,7 +6,7 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 16:44:59 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 23:32:00 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/13 19:16:12 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,43 @@
 **	Validate first line of instructions, and store them for later validation.
 */
 // needs confirmation, good for now
-int		find_dimensions(t_ins *ins, char *str)
+
+int		find_dimensions(t_ins *ins, char *buffer)
 {
-	t_ins.rows = ft_atoi(str);
-	while (ft_isdigit(*str))
-		str++;
-	if (*str != 'x')
+	(ins->rows) = 0;
+	ins->rows = ft_atoi(buffer);
+	while (ft_isdigit(*buffer))
+		buffer++;
+	if (*buffer != 'x')
 	{
-		s_ins.cols = -1;
-		return ;
+		return (-1);
 	}
-	str++;
-	s_ins.cols = ft_atoi(str);
-	return (ft_numlen(t_ins.rows) + ft_numlen(t_ins.cols) + 1);
+	buffer++;
+	ins->cols = ft_atoi(buffer);
+	if (ins->rows <= 0 || ins->cols <= 0)
+		return (-1);
+	return (ft_numlen(ins->rows) + ft_numlen(ins->cols) + 1);
 }
 
-/*
-**	Why am I mallocing here? When do things need to be mallocked?
-*/
-
-void	find_valid_characters(t_ins *ins, char *str)
+char	get_instructions(t_ins *ins, char *str, int fd)
 {
-	ins.str = ft_strdup(str);
-}
+	int		i;
+	int		temp;
+	char	*buffer;
 
-char	get_instructions(t_ins *ins, char *str)
-{
-	find_valid_characters(&ns, str + find_dimensions(*ins, str));
-	if (ins.rows * ins.cols >= 10000000000)
-		return (1);
+	while ((i = read(fd, buffer, BUFF_SIZE) > 0))
+	{
+		buffer[i] = '\0';
+		str = ft_strjoin_memdel(str, buffer);
+		if (find_line(&str, line))
+		{
+			find_dimensions(ins, str, buffer);
+		}
+		i = find_dimensions(ins, buffer);
+		if (i == -1 || (ins->cols * ins->rows) > 10000000 || 
+				ft_strlen(buffer + i) < 5)
+			return (1);
+		ins->str = ft_strdup(buffer + i);
+	}
 	return (0);
 }

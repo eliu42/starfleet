@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 12:45:30 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:05:51 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 08:49:53 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {

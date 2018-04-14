@@ -6,11 +6,11 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/12 15:03:38 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/11 15:19:47 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/12 09:09:42 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "./includes/libft_header.h"
 
 char	*ft_strnstr(const char *big, const char *small, size_t len)
 {
