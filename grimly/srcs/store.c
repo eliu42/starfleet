@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   store.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/15 23:55:32 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/16 07:24:59 by eliu             ###   ########.fr       */
+/*   Created: 2018/04/16 01:11:49 by eliu              #+#    #+#             */
+/*   Updated: 2018/04/16 07:43:05 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/grimly_header.h"
 
+void	store_line(t_ins *ins, char *line)
+{
+	ins->map[y] = ft_strdup(line);
+	ins->y++;;
+}
+
 /*
-**	Takes in multiple map arguments or reads from STDIN
+**	Storing a map requires a map is already made. Also requires storing validated
+**	lines.
 */
 
-
-
-int		main(int arg, char **argv)
+int		store_map(t_ins *ins)
 {
-	int		i;
-	char	buf[BUFF_SIZE + 1];
-	t_ins	*ins;
-
-	i = 0;
-	ins = init_instructions(ins);
-	if (argc != 1)
+	if (validate_map(ins))
+		return (1);
+	if (create_map(ins))
+		return (1);
+	while (ins->i < rows)
 	{
-		while (argv[i])
-		{
-			ins->fd = open(argv[i], O_RDONLY);
-			validate(ins, buf, 0, BUFF_SIZE);
-		}
+		if (store_line(ins))
+			return (1);
 		i++;
 	}
-	validate(ins, buf, 0, BUFF_SIZE);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: eliu <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/09 15:45:35 by eliu              #+#    #+#              #
-#    Updated: 2018/04/12 18:22:05 by eliu             ###   ########.fr        #
+#    Updated: 2018/04/16 02:39:55 by eliu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,10 @@ INCLUDES_PATH = ./includes/
 INCLUDES = $(addprefix $(INCLUDES_PATH), $(HEADERS))
 
 FILES = main.c \
+		structs.c \
+		validate.c\
+		store.c \
 		solver.c \
-		characters.c \
-		instructions.c \
 
 SRC_PATH = ./srcs/
 SRC_FILES = $(addprefix $(SRC_PATH), $(FILES))

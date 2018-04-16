@@ -1,40 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cut_line_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/15 23:55:32 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/16 07:24:59 by eliu             ###   ########.fr       */
+/*   Created: 2018/04/16 01:52:59 by eliu              #+#    #+#             */
+/*   Updated: 2018/04/16 02:13:00 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/grimly_header.h"
+#include "../includes/libft_header.h"
 
-/*
-**	Takes in multiple map arguments or reads from STDIN
-*/
-
-
-
-int		main(int arg, char **argv)
+char	*cut_in_line(char *str)
 {
 	int		i;
-	char	buf[BUFF_SIZE + 1];
-	t_ins	*ins;
+	char	*temp;
 
 	i = 0;
-	ins = init_instructions(ins);
-	if (argc != 1)
-	{
-		while (argv[i])
-		{
-			ins->fd = open(argv[i], O_RDONLY);
-			validate(ins, buf, 0, BUFF_SIZE);
-		}
-		i++;
-	}
-	validate(ins, buf, 0, BUFF_SIZE);
-	return (0);
+	temp = str;
+	w
 }
