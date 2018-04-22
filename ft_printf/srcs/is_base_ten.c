@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   is_base_ten.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/14 20:11:59 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/19 10:42:04 by eliu             ###   ########.fr       */
+/*   Created: 2018/04/21 14:15:40 by eliu              #+#    #+#             */
+/*   Updated: 2018/04/21 14:24:51 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft_header.h"
+#include "../includes/ft_printf_header.h"
 
-void	ft_putnbr_fd(long long n, int fd)
+bool	is_base_ten(char f, t_printf *conversions)
 {
-	if (n < 0)
+	if (is_d_conversion(f, conversions))
 	{
-		ft_putchar_fd('-', fd);
-		n = -n;
+		return (true);
 	}
-	if (n == -9223372036854775807)
+	if (is_d_long_conversion(f, conversions))
 	{
-		ft_putchar_fd('9', fd);
-		n = n % 1000000000000000000;
-		n = -n;
+		return (true);
 	}
-	if (n >= 10)
+	if (is_i_conversion(f, conversions))
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		return (true);
 	}
-	else
-		ft_putchar_fd(n + '0', fd);
+	if (is_u_conversion(f, conversions))
+	{
+		return (true);
+	}
+	if (is_u_long_conversion(f, conversions))
+	{
+		return (true);
+	}
+	return (false);
 }

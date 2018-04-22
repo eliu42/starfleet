@@ -1,18 +1,23 @@
-/* ************************************************************************** */
+s/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   is_d_long_conversion.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/03 15:20:11 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/19 14:24:12 by eliu             ###   ########.fr       */
+/*   Created: 2018/04/21 14:39:16 by eliu              #+#    #+#             */
+/*   Updated: 2018/04/21 14:41:43 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft_header.h"
+#include "../includes/ft_printf_header.h"
 
-void	ft_putnbr(long long n)
+bool	is_d_long_conversion(char f, t_printf *conversions)
 {
-	ft_putnbr_fd(n, 1);
+	if (f == 'D')
+	{
+		conversions->d_long = true;
+		return (true);
+	}
+	return (false);
 }

@@ -6,13 +6,13 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 17:37:22 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/17 18:49:16 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/19 15:12:20 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
-# include "./libft.h"
+# include "libft.h"
 
 #endif

@@ -1,84 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/17 16:49:55 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/17 19:25:09 by eliu             ###   ########.fr       */
+/*   Created: 2018/04/19 13:48:54 by eliu              #+#    #+#             */
+/*   Updated: 2018/04/21 21:02:37 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf_header.h"
 
 /*
-**	Seperates conversions into strings/chars, and number types (int, long, etc).
-*/
-
-void	*find_conversion(const char * restrict format, char c)
-{
-	if (c == '%')
-		;
-	else if (is_string(format))
-	{
-		find_alpha(format);
-	}
-	else if (is_number(format))
-	{
-		find_bytes(format);
-		find_sign(format);
-		find_base(format);
-	}
-}
-
-/*
-**	Twenty lines.
-*/
-
-void	*find_flag(const char * restrict format, char c)
-{
-	if (c == '#')
-		;
-	else if (c == '+')
-		;
-	else if (c == '-')
-		;
-	else if (c == ' ')
-		;
-	else if (c == 'hh')
-		;
-	else if (c == 'h')
-		;
-	else if (c == 'l')
-		;
-	else if (c == 'll')
-		;
-	else if (c == 'j')
-		;
-	else if (c == 'z')
-		;
-}
-
-/*
-**	Format contains all of the conversions symbols '%' and flags eg. sdoiu.
-**	The elipse contains all of the subsequent variables to be converted by
+**	I need to call va_arg inside after I find out what the conversions are.
+**	Format = conversions and everything else stored inside printf.
+**	Conversions are the struct that hold and determine which flag is which.
+**	Va_args are the second half of the printf parameters, the values to be
+**	converted.
 */
 
 int		ft_printf(const char * restrict format, ...)
 {
-	char		var;
-	va_list		ap;
-
-
-	va_start(ap, format);
+	va_list		va_args;
+	t_printf	*conversions;
+	
+	va_start(va_args, format);
+	conversions = ft_memalloc(sizeof(conversions));
 	while (*format)
 	{
+		zero_struct(conversions);
 		if (*format == '%')
 		{
-			var = find_type(*format);
+			while (parse((char*)format, conversions))
+				format++;
+/*			while (!is_conversion(conversions, *format))
+				format++;
+			temp = casting(conversions, *format);
+			va_arg(va_args, temp);
+*/			// take the inputted variable size and the va_arg to print out.
 		}
+		ft_putchar(*format);
+		format++;
 	}
-	va_end(ap);
-	return (0); // if everything was gucci
+	va_end(va_args);
+	return (0);
 }

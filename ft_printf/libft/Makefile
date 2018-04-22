@@ -6,7 +6,7 @@
 #    By: eliu <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                +#+#+#+#+#+   +#+             #
 #    Created: 2016/11/03 18:27:38 by eliu              #+#    #+#              #
-#    Updated: 2018/04/16 16:17:34 by eliu             ###   ########.fr        #
+#    Updated: 2018/04/19 15:11:45 by eliu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,15 +90,17 @@ OBJ_FILES = $(SRC_FILES:.c=.o)
 OBJ_PATH = ./objs/
 
 C_FLAGS = -Wall -Wextra -Werror
-INCLUDES = ../includes/libft.h
+INCLUDES = includes
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(SRC_FILES)
 	gcc $(C_FLAGS) -c $(SRC_FILES) -I $(INCLUDES)
 	ar rc $(NAME) $(OBJ_FILES)
 	ranlib $(NAME)
 	mkdir $(OBJ_PATH) && mv $(OBJ_FILES) $(OBJ_PATH)
+#%.o%.c
+#$>@
 
 clean:
 	rm -f $(OBJ_FILES)

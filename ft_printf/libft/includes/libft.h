@@ -6,7 +6,7 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 18:17:10 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/16 17:49:31 by eliu             ###   ########.fr       */
+/*   Updated: 2018/04/19 15:15:52 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);
-void				ft_putnbr(int n);
-void				ft_putnbr_fd(int n, int fd);
+void				ft_putnbr(long long n);
+void				ft_putnbr_fd(long long n, int fd);
 void				ft_putstr(char const *str);
 void				ft_putstr_fd(char const *s, int fd);
 char				*ft_strcat(char *s1, const char *s2);
