@@ -5,48 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 18:09:53 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/21 21:02:04 by eliu             ###   ########.fr       */
+/*   Created: 2018/04/28 14:35:55 by eliu              #+#    #+#             */
+/*   Updated: 2018/04/30 00:13:25 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# define CONVERSIONS "cCsSdDioOuxXpn%"
+# define FLAGS "# +0-."
+
 # include <stdbool.h>
-# include "libft.h"
+# include "../libft/includes/libft.h"
 # include <stdio.h>
 # include <stdarg.h>
 
-/*
-**	I only need a flag for the type of variable (conversion), maybe multiple
-**	for (flags) since there can be multiple ones in the same conversion. I 
-**	will also probably need the value of the argument stored somewhere (void).
-*/
-/*
-typedef struct			s_printf
-{
-	char				input;
-	char				percent;
-	int					n_total;
-	char				c;
-	char				wide_c;
-	char				*s;
-	char				*wide_s;
-	int					i;
-	int					d;
-	long int			long_d;
-	char				o;
-	long unsigned int	long_o;
-	unsigned int		u;
-	long unsigned int	long_u;
-	unsigned int		x;
-	char				x_big;
-	unsigned int		p;
-	t_mod				*mod;
-	t_flag				*flag;
-}						t_printf;
-*/
 typedef struct			s_mod
 {
 	bool				j;
@@ -65,100 +39,84 @@ typedef struct			s_flag
 	bool				plus;
 	bool				space;
 	bool				precision;
-	bool				field_width;
+//	t_field_width		field_width;
 }						t_flag;
-
 
 typedef struct			s_printf
 {
-	bool				input;
-	bool				percent;
-	bool				n_total;
-	bool				c;
-	bool				w_char;
-	bool				s;
-	bool				w_string;
-	bool				i;
-	bool				d;
-	bool				d_long;
-	bool				o;
-	bool				o_long;
-	bool				u;
-	bool				u_long;
-	bool				x;
-	bool				x_big;
-	bool				p;
+	char				*buf;
+	char				conversion;
+	int					field_width;
+	int					precision;
+	int					n;
 	t_mod				*mod;
 	t_flag				*flag;
 }						t_printf;
 
-int						parse(char *format, t_printf *conversions);
-int						parse_conversion(char *format, t_printf *conversions);
-int						parse_flag_type(char *format, t_printf *conversions);
-int						parse_modifier_type(char *format, t_printf *conversions);
-int						parse_variable_type(char *format, t_printf *conversions);
+typedef struct			s_append_flag
+{
+	char				flag;
+	void				(*append)(t_printf *conversions, char *str, int len);
+}						t_append_flag;
+
+typedef struct 			s_dispatch
+{
+	char				type;
+	int					(*convert)(t_printf *conversions, va_list va_args);
+}						t_dispatch;
 
 
-bool					is_d_conversion(char f, t_printf *conversions);
-bool					is_d_long_conversion(char f, t_printf *conversions);
-bool					is_i_conversion(char f, t_printf *conversions);
-bool					is_o_conversion(char f, t_printf *conversions);
-bool					is_o_long_conversion(char f, t_printf *conversions);
-bool					is_p_conversion(char f, t_printf *conversions);
-bool					is_u_conversion(char f, t_printf *conversions);
-bool					is_u_long_conversion(char f, t_printf *conversions);
-bool					is_x_conversion(char f, t_printf *conversions);
-bool					is_x_big_conversion(char f, t_printf *conversions);
-bool					is__conversion(char f, t_printf *conversions);
-bool					is__conversion(char f, t_printf *conversions);
-bool					is__conversion(char f, t_printf *conversions);
-bool					is__conversion(char f, t_printf *conversions);
-bool					is__conversion(char f, t_printf *conversions);
-bool					is__conversion(char f, t_printf *conversions);
-bool					is__conversion(char f, t_printf *conversions);
-bool					is__conversion(char f, t_printf *conversions);
+int						ft_printf(const char * restrict format, ...);
 
-
-bool					is_h_mod(char *format, t_printf *conversions);
-bool					is_hh_mod(char *format, t_printf *conversions);
-bool					is_l_mod(char *format, t_printf *conversions);
-bool					is_ll_mod(char *format, t_printf *conversions);
-bool					is_j_mod(char *format, t_printf *conversions);
-bool					is_z_mod(char *format, t_printf *conversions);
-bool					is__mod(char *format, t_printf *conversions);
+int						flag_index(char f);
+int						conversion_index(char f);
 
 bool					is_hash_flag(char f, t_printf *conversions);
 bool					is_minus_flag(char f, t_printf *conversions);
 bool					is_plus_flag(char f, t_printf *conversions);
 bool					is_space_flag(char f, t_printf *conversions);
 bool					is_zero_flag(char f, t_printf *conversions);
+bool					is_precision_flag(char f, t_printf *conversions);
+
+bool					is_h_mod(char f, t_printf *conversions);
+bool					is_hh_mod(char f, t_printf *conversions);
+bool					is_l_mod(char f, t_printf *conversions);
+bool					is_ll_mod(char f, t_printf *conversions);
+bool					is_j_mod(char f, t_printf *conversions);
+bool					is_z_mod(char f, t_printf *conversions);
+bool					is__mod(char f, t_printf *conversions);
+
+void					append_hash(t_printf *conversions, char *str, int conv_len);
+void					append_space(t_printf *conversions, char *str, int conv_len);
+void					append_plus(t_printf *conversions, char *str, int conv_len);
+void					append_zero(t_printf *conversions, char *str, int conv_len);
+void					append_minus(t_printf *conversions, char *str, int conv_len);
+void					append_precision(t_printf *conversions, char *str, int conv_len);
+void					append_field_width(t_printf *conversions, char *str, int conv_len);
 
 
+int						print_c(t_printf *conversions, va_list va_args);
+int						print_c_wide(t_printf *conversions, va_list va_args);
+int						print_s(t_printf *conversions, va_list va_args);
+int						print_s_wide(t_printf *conversions, va_list va_args);
+int						print_d(t_printf *conversions, va_list va_args);
+int						print_d_long(t_printf *conversions, va_list va_args);
+int						print_i(t_printf *conversions, va_list va_args);
+int						print_o(t_printf *conversions, va_list va_args);
+int						print_o_big(t_printf *conversions, va_list va_args);
+int						print_u(t_printf *conversions, va_list va_args);
+int						print_x(t_printf *conversions, va_list va_args);
+int						print_x_big(t_printf *conversions, va_list va_args);
+int						print_p(t_printf *conversions, va_list va_args);
+int						print_n(t_printf *conversions, va_list va_args);
+int						print_percent(t_printf *conversions, va_list va_args);
 
-
-
-
-
-
-
-void					*casting(t_printf *conversions, char c);
-void					*char_type(t_printf *conversions, char c);
-void					*num_type(t_printf *conversions, char c);
-int						is_char(char *format, t_printf *conversions);
-int						is_char_type(char *format, t_printf *conversions);
-int						is_conversion(t_printf *conversions, char c);
-int						is_flag(t_printf *conversions, char c);
-int						is_percent(char *format, t_printf *conversions);
-int						is_modifier(t_printf *conversions, char c);					
-int						is_num(t_printf *conversions, char c);
-int						is_num_type(char *format, t_printf *conversions);
-
+int						parse(char *format, t_printf *conversions);
+void					init_dispatcher(void);
 void					zero_struct(t_printf *conversions);
 
+t_dispatch				*g_dispatcher;
+t_append_flag			*g_flags;
 
-int						convert(t_printf *printf);
-int						ft_printf(const char * restrict format, ...);
-void					*find_conversion(const char * restrict format, char c);
-void					*find_flag(const char * restrict format, t_printf *printf);
 
 #endif

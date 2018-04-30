@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
+#ifndef LIBFT_HEADER_H
+# define LIBFT_HEADER_H
 
 # include "libft.h"
 

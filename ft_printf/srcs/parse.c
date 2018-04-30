@@ -5,31 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/20 13:05:54 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/21 18:29:11 by eliu             ###   ########.fr       */
+/*   Created: 2018/04/28 15:59:46 by eliu              #+#    #+#             */
+/*   Updated: 2018/04/28 16:40:57 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf_header.h"
 
-bool	parse_variable_type(char f, t_prbool *conversions)
-{
-	if (is_percent(f, conversions))
-	{
-		return (true);
-	}
-	if (is_char_type(f, conversions))
-	{
-		return (true);
-	}
-	if (is_num_type(f, conversions))
-	{
-		return (true);
-	}
-	return (false);
-}
-
-bool	parse_modifier_type(char f, t_prbool *conversions)
+static bool		is_modifier(char f, t_printf *conversions)
 {
 	if (is_h_mod(f, conversions))
 	{
@@ -58,7 +41,7 @@ bool	parse_modifier_type(char f, t_prbool *conversions)
 	return (false);
 }
 
-bool	parse_flag_type(char f, t_prbool *conversions)
+static bool		is_flag(char f, t_printf *conversions)
 {
 	if (is_hash_flag(f, conversions))
 	{
@@ -80,49 +63,30 @@ bool	parse_flag_type(char f, t_prbool *conversions)
 	{
 		return (true);
 	}
+	if (is_precision_flag(f, conversions))
+	{
+		return (true);
+	}
 	return (false);
 }
 
-/*
-**	Returns 0 if final conversion is found. Otherwise returns 1 to keep reading
-**	through flags and modifiers.
-*/
-
-int		parse_conversion(char f, t_printf *conversions)
+static int		is_conversion(char f)
 {
-	if (!parse_variable_type(f, conversions))
-	{
+	if (f == '%' || f == 'c' || f == 'C' || f == 's' || f == 'S' || \
+		f == 'd' || f == 'D' || f == 'i' || f == 'o' || f == 'O' || \
+		f == 'u' || f == 'x' || f == 'X' || f == 'p' || f == 'n')
 		return (0);
-	}
-	else if (!parse_modifier_type(f, conversions))
-	{
-		return (1);
-	}
-	else if (!parse_flag_type(f, conversions))
-	{
-		return (1);
-	}
-	return (-1);
+	return (1);
 }
 
-int		parse(char *format, t_printf *conversions, va_list va_args)
+int				parse(char *format, t_printf *conversions)
 {
-	int		error;
-
-	while (*format)
+	if (!is_conversion(*format))
 	{
-		if (*format == '%')
-		{
-			format++;
-			while (error = parse_conversion(*format, conversions) > 0)
-			{
-				
-				format++;
-			}
-			if (error == -1)
-				return (-1);
-			print_conversion(format, conversions, va_args);	
-		}
+		conversions->conversion = (*format);
+		return (0);
 	}
+	is_modifier(*format, conversions);
+	is_flag(*format, conversions);
 	return (1);
 }
